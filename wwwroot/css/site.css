@@ -1,0 +1,37 @@
+:root { --bs-border-radius: 0; --bs-border-radius-sm: 0; --bs-border-radius-lg: 0; --bs-border-radius-xl: 0; --bs-border-radius-xxl: 0; }
+* { border-radius: 0 !important; }
+body { margin: 0; background: #f5f6f6; color: #202d31; }
+a { color: #245b63; text-decoration: none; }
+a:hover { color: #153b41; text-decoration: underline; }
+.site-shell { display: grid; grid-template-columns: 235px minmax(0, 1fr); min-height: 100vh; }
+.sidebar { padding: 32px 22px; background: #e4ebeb; border-right: 1px solid #c9d3d4; }
+.brand { display: block; font-size: 26px; font-weight: 700; color: #202d31; }
+.sidebar-caption { font-size: 13px; color: #5b696d; margin: 8px 0 32px; }
+.sidebar nav a { display: block; padding: 11px 0; border-bottom: 1px solid #ccd6d7; }
+.sidebar nav .my-link { margin-top: 30px; }
+.main-content { padding: 32px; min-width: 0; max-width: 1500px; width: 100%; }
+.catalog-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 26px; padding-bottom: 22px; border-bottom: 1px solid #ccd6d7; }
+.search-form { display: flex; gap: 8px; width: 390px; max-width: 100%; }
+.btn-primary { --bs-btn-bg: #285f67; --bs-btn-border-color: #285f67; --bs-btn-hover-bg: #1c454b; --bs-btn-hover-border-color: #1c454b; --bs-btn-active-bg: #183b40; --bs-btn-active-border-color: #183b40; }
+.btn-outline-primary { --bs-btn-color: #285f67; --bs-btn-border-color: #285f67; --bs-btn-hover-bg: #285f67; --bs-btn-hover-border-color: #285f67; }
+.form-control:focus, .form-select:focus { border-color: #285f67; box-shadow: 0 0 0 2px #285f6720; }
+.card { border-color: #d4dddd; }
+.item-photo { width: 100%; height: 230px; object-fit: contain; background: white; padding: 12px; border-bottom: 1px solid #e1e6e6; }
+.detail-photo { width: 100%; max-height: 460px; object-fit: contain; background: white; padding: 16px; }
+.details-link { font-size: 14px; }
+.description { white-space: pre-wrap; overflow-wrap: anywhere; }
+.card-title { overflow-wrap: anywhere; }
+.form-page { max-width: 700px; background: white; border: 1px solid #d4dddd; padding: 24px; }
+.field-validation-error, .validation-summary-errors { color: #b02a37; }
+@media (max-width: 767px) {
+.site-shell { grid-template-columns: 1fr; }
+.sidebar { padding: 18px; border-right: 0; border-bottom: 1px solid #c9d3d4; }
+.sidebar-caption { margin: 4px 0 10px; }
+.sidebar nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.sidebar nav a { padding: 5px 0; border: 0; }
+.sidebar nav .my-link { margin: 0; }
+.main-content { padding: 22px 16px; }
+.catalog-heading { align-items: stretch; flex-direction: column; }
+.search-form { width: 100%; }
+.form-page { padding: 18px; }
+}

@@ -1,0 +1,19 @@
+@page
+@model MoiMarket.Pages.Items.CreateModel
+@{ ViewData["Title"] = "Новое объявление"; }
+<div class="form-page">
+<h1 class="h3 mb-3">Выставить на продажу</h1>
+<form method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="mb-3"></div>
+    <div class="mb-3"><label class="form-label" asp-for="Input.Title"></label><input class="form-control" asp-for="Input.Title" maxlength="80" required /><span asp-validation-for="Input.Title"></span></div>
+    <div class="mb-3"><label class="form-label" asp-for="Input.Category"></label><select class="form-select" asp-for="Input.Category" required><option value="">Выберите категорию</option><option value="вентиляторы">Вентиляторы</option><option value="мультиварки">Мультиварки</option><option value="мантоварки">Мантоварки</option></select><span asp-validation-for="Input.Category"></span></div>
+    <div class="mb-3"><label class="form-label" asp-for="Input.Description"></label><textarea class="form-control" asp-for="Input.Description" rows="5" maxlength="2000" required></textarea><span asp-validation-for="Input.Description"></span></div>
+    <div class="mb-3"><label class="form-label" asp-for="Input.Price"></label><input class="form-control" asp-for="Input.Price" type="number" min="0.01" max="100000000" step="0.01" required /><span asp-validation-for="Input.Price"></span></div>
+    <div class="mb-3"><label class="form-label" asp-for="Input.Seller"></label><input class="form-control" asp-for="Input.Seller" maxlength="60" required /><span asp-validation-for="Input.Seller"></span></div>
+    <div class="mb-3"><label class="form-label" asp-for="Input.Phone"></label><input class="form-control" asp-for="Input.Phone" type="tel" maxlength="20" placeholder="+7 900 123-45-67" required /><span asp-validation-for="Input.Phone"></span></div>
+    <div class="mb-3"><label class="form-label" asp-for="Photo"></label><input class="form-control" asp-for="Photo" type="file" accept=".jpg,.jpeg,.png" required /><span asp-validation-for="Photo"></span></div>
+    <p class="text-muted small">Управление объявлением будет доступно в этом браузере. Не удаляйте его cookie.</p>
+    <button class="btn btn-primary" type="submit">Опубликовать</button>
+    <a class="btn btn-outline-secondary" asp-page="/Index">Отмена</a>
+</form>
+</div>

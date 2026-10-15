@@ -1,0 +1,36 @@
+@page "/Items/{id:int:min(1)}/Order"
+@model MoiMarket.Pages.Items.OrderModel
+@{ ViewData["Title"] = "Заказ товара"; }
+<div class="form-page">
+<h1 class="h3">Заказать товар</h1>
+<p>@Model.Item.Title - @Model.Item.Price.ToString("N2") руб.</p>
+<form method="post" id="order-form">
+    <div asp-validation-summary="ModelOnly" class="mb-3"></div>
+    <div class="mb-3"><label class="form-label" asp-for="Input.Name"></label><input class="form-control" asp-for="Input.Name" maxlength="60" required /><span asp-validation-for="Input.Name"></span></div>
+    <div class="mb-3"><label class="form-label" asp-for="Input.Phone"></label><input class="form-control" asp-for="Input.Phone" type="tel" maxlength="20" placeholder="+7 900 123-45-67" required /><span asp-validation-for="Input.Phone"></span></div>
+    <div class="mb-3"><label class="form-label" asp-for="Input.Comment"></label><textarea class="form-control" asp-for="Input.Comment" rows="3" maxlength="500"></textarea><span asp-validation-for="Input.Comment"></span></div>
+    <button class="btn btn-primary" type="submit">Заказать</button>
+    <a class="btn btn-outline-secondary" asp-page="Details" asp-route-id="@Model.Item.Id">Отмена</a>
+</form>
+</div>
+<div class="modal fade" id="confirm-order" tabindex="-1" aria-labelledby="confirm-title" aria-hidden="true">
+    <div class="modal-dialog"><div class="modal-content">
+        <div class="modal-header"><h2 class="modal-title fs-5" id="confirm-title">Подтвердить заказ?</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button></div>
+        <div class="modal-body">Товар «@Model.Item.Title» будет забронирован за вами. Цена: @Model.Item.Price.ToString("N2") руб.</div>
+        <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button><button type="button" class="btn btn-primary" id="confirm-button">Подтвердить</button></div>
+    </div></div>
+</div>
+@section Scripts {
+<script>
+    const form = document.getElementById('order-form');
+    const modal = new bootstrap.Modal(document.getElementById('confirm-order'));
+    form.addEventListener('submit', event => {
+        event.preventDefault();
+        if (form.reportValidity()) modal.show();
+    });
+    document.getElementById('confirm-button').addEventListener('click', event => {
+        event.target.disabled = true;
+        HTMLFormElement.prototype.submit.call(form);
+    });
+</script>
+}

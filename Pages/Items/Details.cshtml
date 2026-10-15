@@ -1,0 +1,19 @@
+@page "/Items/{id:int:min(1)}"
+@model MoiMarket.Pages.Items.DetailsModel
+@{ ViewData["Title"] = Model.Item.Title; }
+<a asp-page="/Index">Вернуться в каталог</a>
+<div class="row g-4 mt-1">
+    <div class="col-md-6"><img class="detail-photo border" src="@Model.Item.ImagePath" asp-append-version="true" alt="@Model.Item.Title" /></div>
+    <div class="col-md-6">
+        <h1 class="h3 description">@Model.Item.Title</h1>
+        <p class="text-muted">@Model.Item.Category</p>
+        <p class="fs-4 fw-bold">@Model.Item.Price.ToString("N2") руб.</p>
+        <p class="description">@Model.Item.Description</p>
+        <h2 class="h5">Контакты продавца</h2>
+        <p>@Model.Item.Seller<br />@Model.Item.Phone</p>
+        @if (!Model.Item.IsPublished) { <p class="alert alert-secondary">Снято с публикации</p> }
+        else if (Model.Item.IsReserved) { <p class="alert alert-secondary">Товар забронирован</p> }
+        else { <a class="btn btn-primary" asp-page="Order" asp-route-id="@Model.Item.Id">Заказать</a> }
+        @if (Model.IsOwner) { <a class="btn btn-outline-secondary" asp-page="Mine">Управлять объявлением</a> }
+    </div>
+</div>

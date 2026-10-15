@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>@ViewData["Title"] - Барахолка</title>
+<link rel="stylesheet" href="~/lib/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+<div class="site-shell">
+<aside class="sidebar">
+<a class="brand" asp-page="/Index" asp-route-categoryName="">Барахолка</a>
+<p class="sidebar-caption">Техника и посуда для дома</p>
+<nav aria-label="Основное меню">
+<a asp-page="/Index" asp-route-categoryName="">Все товары</a>
+@foreach (var category in new[] { "вентиляторы", "мультиварки", "мантоварки" })
+{
+<a asp-page="/Index" asp-route-categoryName="@category">@(char.ToUpper(category[0]) + category[1..])</a>
+}
+<a class="my-link" asp-page="/Items/Mine">Мои объявления</a>
+</nav>
+<a class="btn btn-primary w-100 mt-3" asp-page="/Items/Create">+ Продать товар</a>
+
+</aside>
+<main class="main-content">
+@if (TempData["Message"] is string message)
+{
+<div class="alert alert-success" role="status">@message</div>
+}
+@RenderBody()
+</main>
+</div>
+<script src="~/lib/bootstrap.bundle.min.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

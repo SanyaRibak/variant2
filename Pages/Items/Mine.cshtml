@@ -1,0 +1,24 @@
+@page
+@model MoiMarket.Pages.Items.MineModel
+@{ ViewData["Title"] = "Мои объявления"; }
+<h1 class="h3">Мои объявления</h1>
+<p class="text-muted">Здесь отображаются объявления, добавленные в этом браузере.</p>
+@if (Model.Items.Count == 0) { <p>У вас пока нет объявлений.</p> }
+@foreach (var item in Model.Items)
+{
+    <div class="card mb-3"><div class="card-body">
+        <h2 class="h5"><a asp-page="Details" asp-route-id="@item.Id">@item.Title</a></h2>
+        <p>@item.Price.ToString("N2") руб. - @(item.IsPublished ? "Опубликовано" : "Снято с публикации") @(item.IsReserved ? "/ Забронирован" : "")</p>
+        <div class="d-flex gap-2">
+            @if (item.IsPublished)
+            {
+                <form method="post" asp-page-handler="Hide" asp-route-id="@item.Id"><button class="btn btn-outline-secondary" type="submit">Снять с публикации</button></form>
+            }
+            <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id" onsubmit="return confirm('Удалить объявление?')"><button class="btn btn-outline-danger" type="submit">Удалить</button></form>
+        </div>
+        @foreach (var order in Model.Orders[item.Id])
+        {
+            <div class="border-top mt-3 pt-3"><strong>Заказ от @order.CreatedAt.ToString("dd.MM.yyyy HH:mm")</strong><p class="mb-1">@order.Name, @order.Phone</p><p class="description mb-0">@order.Comment</p></div>
+        }
+    </div></div>
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "Id": 1,
+    "Title": "Настольный вентилятор",
+    "Description": "Компактный вентилятор для рабочего стола. Работает от сети, наклон регулируется. Есть небольшие следы использования.",
+    "Category": "вентиляторы",
+    "Price": 900,
+    "Seller": "Антон",
+    "Phone": "+7 900 000-00-01",
+    "ImagePath": "/images/product-1.jpg",
+    "OwnerId": "demo-1",
+    "IsPublished": true,
+    "IsReserved": false
+  },
+  {
+    "Id": 2,
+    "Title": "Вентилятор General Electric",
+    "Description": "Настольный вентилятор в металлическом корпусе. Рабочий, решётка и лопасти целые. Самовывоз.",
+    "Category": "вентиляторы",
+    "Price": 2400,
+    "Seller": "Игорь",
+    "Phone": "+7 900 000-00-02",
+    "ImagePath": "/images/product-2.jpg",
+    "OwnerId": "demo-2",
+    "IsPublished": true,
+    "IsReserved": false
+  },
+  {
+    "Id": 3,
+    "Title": "Мультиварка-скороварка Marta",
+    "Description": "Для каш, супов и тушения. Чаша и сетевой шнур в комплекте. Пользовались около года.",
+    "Category": "мультиварки",
+    "Price": 2800,
+    "Seller": "Ольга",
+    "Phone": "+7 900 000-00-03",
+    "ImagePath": "/images/product-3.jpg",
+    "OwnerId": "demo-3",
+    "IsPublished": true,
+    "IsReserved": false
+  },
+  {
+    "Id": 4,
+    "Title": "Мультиварка Moulinex Simply Cook",
+    "Description": "В комплекте чаша и корзина для приготовления на пару. Все программы работают. Продаю после покупки другой модели.",
+    "Category": "мультиварки",
+    "Price": 4200,
+    "Seller": "Марина",
+    "Phone": "+7 900 000-00-04",
+    "ImagePath": "/images/product-4.jpg",
+    "OwnerId": "demo-4",
+    "IsPublished": true,
+    "IsReserved": false
+  },
+  {
+    "Id": 5,
+    "Title": "Мантоварка из нержавеющей стали",
+    "Description": "Мантоварка с несколькими ярусами и крышкой. Подходит для мантов и овощей на пару. Без вмятин, ручки на месте.",
+    "Category": "мантоварки",
+    "Price": 1800,
+    "Seller": "Сергей",
+    "Phone": "+7 900 000-00-05",
+    "ImagePath": "/images/product-5.jpg",
+    "OwnerId": "demo-5",
+    "IsPublished": true,
+    "IsReserved": false
+  },
+  {
+    "Id": 6,
+    "Title": "Мантоварка с бамбуковыми корзинами",
+    "Description": "Набор для приготовления на пару: металлическая мантоварка со стеклянной крышкой и две бамбуковые корзины. Продаётся целиком.",
+    "Category": "мантоварки",
+    "Price": 2200,
+    "Seller": "Андрей",
+    "Phone": "+7 900 000-00-06",
+    "ImagePath": "/images/product-6.jpg",
+    "OwnerId": "demo-6",
+    "IsPublished": true,
+    "IsReserved": false
+  }
+]
